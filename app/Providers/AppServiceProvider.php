@@ -25,11 +25,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Order::observe(OrderObserver::class);
-        
-        Event::listen(
-            OrderStatusChanged::class,
-            SendShipmentEmail::class,
-        );
 
     }
 }

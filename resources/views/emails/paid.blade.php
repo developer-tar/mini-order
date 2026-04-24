@@ -5,6 +5,6 @@
 <ul>
     <li>Order ID: {{ $order->id }}</li>
     <li>Order Date: {{ $order->created_at->format('Y-m-d H:i:s') }}</li>
-    <li>Total Amount: ${{ number_format($order->total, 2) }}</li>
+    <li>Total Amount: {{ $order->total_amount }}</li>
 </ul>
 <p>you will receive a your package soon.</p>

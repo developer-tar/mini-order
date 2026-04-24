@@ -25,11 +25,11 @@ class SendShipmentEmail
     public function handle(OrderStatusChanged $event): void
     {
         $order = $event->order;
-        if ($order->status === OrderStatus::SHIPPED) {
+        if ($order->status === OrderStatus::SHIPPED->value) {
           dispatch(new SendShipmentEmailJob($order));
         }
 
-        if ($order->status === OrderStatus::PAID) {
+        if ($order->status === OrderStatus::PAID->value) {
           dispatch(new SendPaidOrderJob($order));
         }
     }

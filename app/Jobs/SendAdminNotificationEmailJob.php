@@ -25,6 +25,7 @@ class SendAdminNotificationEmailJob implements ShouldQueue
      */
     public function handle(): void
     {
+        sleep(5); // Simulate a delay for sending the email beacuse for testing free accoutn of mailtrap has a limit of 1 email per second
         Mail::to(config('mail.admin_email'))->send(new AdminNotificationMail($this->order));
     }
 }
